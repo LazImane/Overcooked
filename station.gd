@@ -39,9 +39,9 @@ func interact():
 		"ingredients":
 			if current_item == "":
 				current_item = "tomato"
-				station_type = "chop"
 				print("Spawned ingredient:", current_item)
-				print("moving to" + station_type)
+				station_type = "chop"
+				print("Moving to "+ station_type)
 			else :
 				print("Station already has:", current_item)
 		"chop":
@@ -51,7 +51,7 @@ func interact():
 				current_item = "chopped_tomato"
 				print("Chopped into:", current_item)
 				station_type = "cook"
-				print("Moving to" + station_type)
+				print("Moving to "+ station_type)
 			else:
 				print("Can't chop ", current_item)
 		"cook":
