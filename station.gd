@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var station_type: String = "ingredients"
+@export var station_type: String = "chop"
 var current_item: String = ""
 
 func interact():
@@ -23,3 +23,13 @@ func interact():
 			if current_item == "cooked_tomato":
 				print("Served dish! +1 point")
 				current_item = ""
+func _on_body_entered(body):
+	if body.name == "Player":
+		body.set_current_station(self)
+		print('entered!')
+
+
+func _on_body_exited(body) :
+	if body.name == "Player":
+		body.set_current_station(null)
+		print('acquired ! : ', current_item)

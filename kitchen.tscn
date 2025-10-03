@@ -1,9 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://c224xw01x1jxc"]
+[gd_scene load_steps=8 format=3 uid="uid://c224xw01x1jxc"]
 
 [ext_resource type="Script" uid="uid://ptke8i67ajyk" path="res://kitchen.gd" id="1_ipk1y"]
 [ext_resource type="PackedScene" uid="uid://3ce6mofv1c7x" path="res://station.tscn" id="1_vloss"]
+[ext_resource type="Script" uid="uid://ss5uvg2n0qr2" path="res://player.gd" id="3_kdutl"]
+[ext_resource type="Texture2D" uid="uid://djetqogcxpxac" path="res://icon.svg" id="4_7yojt"]
+
+[sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_kdutl"]
+
+[sub_resource type="ExternalTexture" id="ExternalTexture_7yojt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8uxm"]
 
 [node name="Kitchen" type="Node2D"]
 script = ExtResource("1_ipk1y")
 
 [node name="Station" parent="." instance=ExtResource("1_vloss")]
+position = Vector2(423, 152)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Station"]
+shape = SubResource("ConcavePolygonShape2D_kdutl")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Station"]
+texture = SubResource("ExternalTexture_7yojt")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("3_kdutl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(426, 233)
+scale = Vector2(0.4453125, 0.3671875)
+texture = ExtResource("4_7yojt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_g8uxm")
+
+[connection signal="body_entered" from="Station" to="Station" method="_on_body_entered"]
+[connection signal="body_exited" from="Station" to="Station" method="_on_body_exited"]
