@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var station_type: String = "ingredients"
+@export var station_type: String = "ingredients" #"always starts with this"
 var current_item: String = ""
 #adding graphics
 @onready var sprite = $Sprite2D
@@ -39,7 +39,9 @@ func interact():
 		"ingredients":
 			if current_item == "":
 				current_item = "tomato"
+				station_type = "chop"
 				print("Spawned ingredient:", current_item)
+				print("moving to" + station_type)
 			else :
 				print("Station already has:", current_item)
 		"chop":
@@ -48,6 +50,8 @@ func interact():
 			elif current_item == "tomato": #we will later make this more complicated than an if-case scenario trust 
 				current_item = "chopped_tomato"
 				print("Chopped into:", current_item)
+				station_type = "cook"
+				print("Moving to" + station_type)
 			else:
 				print("Can't chop ", current_item)
 		"cook":
@@ -56,6 +60,8 @@ func interact():
 			elif current_item == "chopped_tomato":
 				current_item = "cooked_tomato"
 				print("Cooked into:", current_item)
+				station_type = "serve"
+				print("Moving to" + station_type)
 			else:
 				print("Can't cook ", current_item)
 		"serve":
