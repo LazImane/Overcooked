@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var station_type: String = "ingredients"
+@export var station_type: String = "chop"
 var current_item: String = ""
 #adding graphics
 @onready var sprite = $Sprite2D

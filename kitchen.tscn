@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://c224xw01x1jxc"]
+[gd_scene load_steps=8 format=3 uid="uid://c224xw01x1jxc"]
 
 [ext_resource type="Script" uid="uid://ptke8i67ajyk" path="res://kitchen.gd" id="1_ipk1y"]
 [ext_resource type="PackedScene" uid="uid://3ce6mofv1c7x" path="res://station.tscn" id="1_vloss"]
+[ext_resource type="Script" uid="uid://ss5uvg2n0qr2" path="res://player.gd" id="3_kdutl"]
+[ext_resource type="Texture2D" uid="uid://djetqogcxpxac" path="res://icon.svg" id="4_7yojt"]
+
+[sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_kdutl"]
+
+[sub_resource type="ExternalTexture" id="ExternalTexture_7yojt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8uxm"]
 
 [node name="Kitchen" type="Node2D"]
 script = ExtResource("1_ipk1y")
