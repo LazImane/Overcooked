@@ -1,6 +1,6 @@
 extends Node2D
 
-# simulate 4 stations: ingredients, chop, cook, serve
+#4 stations: ingredients, chop, cook, serve
 var ingredient_station = {"type":"ingredients", "item":""}
 var chop_station = {"type":"chop", "item":""}
 var cook_station = {"type":"cook", "item":""}

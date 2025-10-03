@@ -7,3 +7,7 @@
 script = ExtResource("1_ipk1y")
 
 [node name="Station" parent="." instance=ExtResource("1_vloss")]
+
+[node name="Label" type="Label" parent="Station"]
+offset_right = 40.0
+offset_bottom = 23.0
