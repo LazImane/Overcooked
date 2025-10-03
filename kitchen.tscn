@@ -1,13 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://c224xw01x1jxc"]
+[gd_scene load_steps=9 format=3 uid="uid://c224xw01x1jxc"]
 
 [ext_resource type="Script" uid="uid://ptke8i67ajyk" path="res://kitchen.gd" id="1_ipk1y"]
 [ext_resource type="PackedScene" uid="uid://3ce6mofv1c7x" path="res://station.tscn" id="1_vloss"]
+[ext_resource type="Script" uid="uid://2srxr5tqvfmb" path="res://station_chop.gd" id="3_xsyy8"]
+[ext_resource type="Script" uid="uid://l2ik8luc0er" path="res://station_cook.gd" id="4_kdutl"]
+[ext_resource type="Script" uid="uid://b5ll0tgcd0dw4" path="res://area_2d.gd" id="5_7yojt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdutl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7yojt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8uxm"]
 
 [node name="Kitchen" type="Node2D"]
 script = ExtResource("1_ipk1y")
 
-[node name="Station" parent="." instance=ExtResource("1_vloss")]
+[node name="Station_Ingr" parent="." instance=ExtResource("1_vloss")]
 
-[node name="Label" type="Label" parent="Station"]
+[node name="Label" type="Label" parent="Station_Ingr"]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="Station_chop" type="Area2D" parent="."]
+script = ExtResource("3_xsyy8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Station_chop"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Station_chop"]
+shape = SubResource("RectangleShape2D_kdutl")
+
+[node name="Station_cook" type="Area2D" parent="."]
+script = ExtResource("4_kdutl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Station_cook"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Station_cook"]
+shape = SubResource("RectangleShape2D_7yojt")
+
+[node name="Station_serve" type="Area2D" parent="."]
+script = ExtResource("5_7yojt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Station_serve"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Station_serve"]
+shape = SubResource("RectangleShape2D_g8uxm")
