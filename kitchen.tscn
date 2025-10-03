@@ -1,13 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://c224xw01x1jxc"]
+[gd_scene load_steps=5 format=3 uid="uid://c224xw01x1jxc"]
 
 [ext_resource type="Script" uid="uid://ptke8i67ajyk" path="res://kitchen.gd" id="1_ipk1y"]
 [ext_resource type="PackedScene" uid="uid://3ce6mofv1c7x" path="res://station.tscn" id="1_vloss"]
+[ext_resource type="Script" uid="uid://ksnjye23ssj1" path="res://bot.gd" id="3_kdutl"]
+[ext_resource type="Texture2D" uid="uid://djetqogcxpxac" path="res://icon.svg" id="3_xsyy8"]
 
 [node name="Kitchen" type="Node2D"]
+position = Vector2(327, 223)
 script = ExtResource("1_ipk1y")
 
 [node name="Station" parent="." instance=ExtResource("1_vloss")]
+position = Vector2(0, 7)
 
 [node name="Label" type="Label" parent="Station"]
 offset_right = 40.0
 offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Bot" type="CharacterBody2D" parent="."]
+position = Vector2(940, 344)
+script = ExtResource("3_kdutl")
+station_path = NodePath("../Station")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bot"]
+position = Vector2(-4, 0)
+texture = ExtResource("3_xsyy8")
