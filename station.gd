@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var station_type: String = "chop"
+@export var station_type: String = "ingredients"
 var current_item: String = ""
 
 func interact():
