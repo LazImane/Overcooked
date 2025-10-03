@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var station_type: String = "ingredients"
+@export var station_type: String = "cook"
 var current_item: String = ""
 
 # We'll create these in code, so no @onready needed

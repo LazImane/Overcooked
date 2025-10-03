@@ -1,27 +1,96 @@
-[gd_scene load_steps=5 format=3 uid="uid://c224xw01x1jxc"]
+[gd_scene load_steps=12 format=3 uid="uid://c224xw01x1jxc"]
 
 [ext_resource type="Script" uid="uid://ptke8i67ajyk" path="res://kitchen.gd" id="1_ipk1y"]
 [ext_resource type="PackedScene" uid="uid://3ce6mofv1c7x" path="res://station.tscn" id="1_vloss"]
 [ext_resource type="Script" uid="uid://ksnjye23ssj1" path="res://bot.gd" id="3_kdutl"]
 [ext_resource type="Texture2D" uid="uid://djetqogcxpxac" path="res://icon.svg" id="3_xsyy8"]
+[ext_resource type="Script" uid="uid://c3w4ckpxetyix" path="res://station_chop.gd" id="5_f16ov"]
+[ext_resource type="Script" uid="uid://c1s73pcaxt4h" path="res://station_cook.gd" id="6_77hbq"]
+[ext_resource type="Script" uid="uid://cf6o4abypq6s2" path="res://area_2d.gd" id="7_r0fwo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ip1g"]
+size = Vector2(113, 116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f16ov"]
+size = Vector2(116, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77hbq"]
+size = Vector2(154, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0fwo"]
+size = Vector2(69, 36)
 
 [node name="Kitchen" type="Node2D"]
-position = Vector2(327, 223)
+position = Vector2(387, 244)
 script = ExtResource("1_ipk1y")
 
-[node name="Station" parent="." instance=ExtResource("1_vloss")]
-position = Vector2(0, 7)
+[node name="Station_Ingr" parent="." instance=ExtResource("1_vloss")]
+position = Vector2(-210, -156)
 
-[node name="Label" type="Label" parent="Station"]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="station_ingr" type="Label" parent="Station_Ingr"]
+offset_left = 170.0
+offset_top = 7.0
+offset_right = 210.0
+offset_bottom = 30.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Bot" type="CharacterBody2D" parent="."]
-position = Vector2(940, 344)
+position = Vector2(174, 42)
 script = ExtResource("3_kdutl")
-station_path = NodePath("../Station")
+ingredients_path = NodePath("../Station_Ingr")
+chop_path = NodePath("../Station_chop")
+cook_path = NodePath("../Station_cook")
+serve_path = NodePath("../Station_serve")
 
 [node name="Sprite2D" type="Sprite2D" parent="Bot"]
-position = Vector2(-4, 0)
+position = Vector2(1, -3)
 texture = ExtResource("3_xsyy8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bot"]
+position = Vector2(-1.5, -3)
+shape = SubResource("RectangleShape2D_0ip1g")
+
+[node name="Station_chop" type="Area2D" parent="."]
+position = Vector2(533, 324)
+script = ExtResource("5_f16ov")
+
+[node name="station_chop" type="Label" parent="Station_chop"]
+offset_left = 174.0
+offset_top = 227.0
+offset_right = 214.0
+offset_bottom = 250.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Station_chop"]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_f16ov")
+
+[node name="Station_cook" type="Area2D" parent="."]
+position = Vector2(215, -154)
+script = ExtResource("6_77hbq")
+
+[node name="station_cook" type="Label" parent="Station_cook"]
+offset_left = 132.0
+offset_top = 75.0
+offset_right = 172.0
+offset_bottom = 98.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Station_cook"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_77hbq")
+
+[node name="Station_serve" type="Area2D" parent="."]
+position = Vector2(398, -144)
+script = ExtResource("7_r0fwo")
+
+[node name="station_serve" type="Label" parent="Station_serve"]
+offset_left = -21.0
+offset_top = 147.0
+offset_right = 19.0
+offset_bottom = 170.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Station_serve"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_r0fwo")

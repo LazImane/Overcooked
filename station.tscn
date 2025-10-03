@@ -2,14 +2,17 @@
 
 [ext_resource type="Script" uid="uid://cvhijwrhe8ajj" path="res://station.gd" id="1_lu35c"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbxf2"]
-size = Vector2(1282, 753)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lu35c"]
+size = Vector2(267, 126)
 
 [node name="Station" type="Area2D"]
+position = Vector2(984, 549)
+disable_mode = 2
 script = ExtResource("1_lu35c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(0.4609375, 0.4609375)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_rbxf2")
+shape = SubResource("RectangleShape2D_lu35c")
