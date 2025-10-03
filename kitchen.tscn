@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c224xw01x1jxc"]
+
+[ext_resource type="Script" uid="uid://ptke8i67ajyk" path="res://kitchen.gd" id="1_ipk1y"]
+[ext_resource type="PackedScene" uid="uid://3ce6mofv1c7x" path="res://station.tscn" id="1_vloss"]
+
+[node name="Kitchen" type="Node2D"]
+script = ExtResource("1_ipk1y")
+
+[node name="Station" parent="." instance=ExtResource("1_vloss")]
