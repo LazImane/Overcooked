@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://3ce6mofv1c7x" path="res://station.tscn" id="1_vloss"]
 [ext_resource type="Script" uid="uid://2srxr5tqvfmb" path="res://station_chop.gd" id="3_xsyy8"]
 [ext_resource type="Script" uid="uid://l2ik8luc0er" path="res://station_cook.gd" id="4_kdutl"]
-[ext_resource type="Script" uid="uid://b5ll0tgcd0dw4" path="res://area_2d.gd" id="5_7yojt"]
+[ext_resource type="Script" path="res://area_2d.gd" id="5_7yojt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdutl"]
 

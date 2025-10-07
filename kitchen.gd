@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var tilemap = $TileMap
+
 func _ready():
 	# Position all station nodes in a row
 	var x = 100
@@ -9,3 +11,4 @@ func _ready():
 			x += 200
 	print("Kitchen ready! Click stations to test.")
 	print("Stations: Ingredients -> Chop -> Cook -> Serve")
+	
